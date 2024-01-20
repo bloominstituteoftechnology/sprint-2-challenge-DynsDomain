@@ -60,9 +60,37 @@ if ((x || y < 1) || (x || y > 3)) {
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
+//       1. Transform any value of zero (`0`) into the boolean `false`.
+// 2. Transform any value of one (`1`) into the boolean `true`.
+// 3. If a value is `null`, delete the entire key-value pair from the object.
+// 4. If any _property_ name exceeds 9 characters, return the string `"shorten all prop names to 9 chars or less"`.
 
+
+// Develop the `booleanize` function so it transforms
+//  an object's properties based on the criteria listed 
+// (see requirements below). This function will loop 
+// over each property in the object and apply certain 
+// transformations to its values, while also handling 
+// edge cases related to property names.
+
+
+ for (let key in obj) {
+  if (key.length > 9) {
+    return "shorten all prop names to 9 chars or less";
+  }
+ }
+    for (let key in obj){
+      if (obj[key] === 0) {
+        obj[key] = false;
+      } else if (obj[key] === 1) {
+        obj[key] = true;
+      } else if (obj[key] === null) {
+        delete obj[key];
+      }
+      return obj;
     }
 
+  }
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
 
