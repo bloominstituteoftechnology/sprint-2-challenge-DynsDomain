@@ -9,25 +9,25 @@
   //   **active**, set it to **inactive** and assign the provided `reason` to the profile. The updated profile should be returned.
   //   **inactive**, set it to **active** and remove the `reason` property from the profile. The updated profile should be returned.
   //  in is active and no `reason` is provided, return `"confirm status manually"` and do not modify the profile.
-        if(profile === true){
-          active = false;
-          delete reason; 
-          return profile;
-        } else if(profile === false){
-          active = true;
-          reason = "Not logged in for 30 days";
-          return profile;
-          return reason;
-        } else(profile === true && !reason) {
-          let reason = 'confirm status manually';
-          return reason;
-        }
-      
+       if (profile.active && reason === undefined) {
+            return "confirm status manually";
+       } else if (profile.active === true) {
+          profile.active = false;
+          profile.reason = "because";
+       } else if(profile.active === false) {
+        profile.active = true;
+        delete profile.reason;
+       }
+       return profile
     }
 
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
+      // 1. If the coordinates land on a red square ("🟥"), return `"🟥 💀"`.
+      // 2. If the coordinates land on a blue square ("🟦"), return `"🟦 🥳"`.
+      // 3. If `x` _or_ `y` is less than 1 or greater than 3, return `"invalid coordinates"`.
       
+       
     }
 
     // 👉 CHALLENGE 3
