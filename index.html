@@ -27,6 +27,34 @@
       // 2. If the coordinates land on a blue square ("🟦"), return `"🟦 🥳"`.
       // 3. If `x` _or_ `y` is less than 1 or greater than 3, return `"invalid coordinates"`.
       
+
+//       The grid consists of a 3x3 array of strings, where:
+// - "🟥" represents a mine.
+// - "🟦" represents a safe spot.
+
+// - **grid:** An array of arrays representing the game grid.
+// - **x:** The x-coordinate (horizontal position) in the grid.
+// - **y:** The y-coordinate (vertical position) in the grid.
+
+
+
+
+x = 1;
+y = 1;
+
+
+
+if ((x || y < 1) || (x || y > 3)) {
+  return "invalid coordinates";
+}
+
+
+ if (grid[y][x] === "🟦") {
+  return "🟦 🥳";
+} else if (grid[y][x] === "🟥") {
+  return  "🟥 💀";
+}
+
        
     }
 
