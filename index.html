@@ -39,24 +39,22 @@
 
 
 
-x = 1;
-y = 1;
 
-
-
-if ((x || y < 1) || (x || y > 3)) {
+// Check if x or y is less than 1 or greater than 3
+if (x < 1 || x > 3 || y < 1 || y > 3) {
   return "invalid coordinates";
-}
-
-
- if (grid[y][x] === "🟦") {
+  } // Check the value at the provided coordinates
+ 
+ // adjust x & y to match array Indices
+  x -= 1;
+  y -= 1;
+ // Check Value at Provided Coordinates
+  if (grid[y][x] === "🟦") {
   return "🟦 🥳";
-} else if (grid[y][x] === "🟥") {
+  } else if (grid[y][x] === "🟥") {
   return  "🟥 💀";
+  } 
 }
-
-       
-    }
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
