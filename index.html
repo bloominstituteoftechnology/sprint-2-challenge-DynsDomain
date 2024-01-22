@@ -102,14 +102,92 @@ if ((x || y < 1) || (x || y > 3)) {
       The modified text is then returned from the function.
       */
 
+      // - **text:** A string representing the text to be scrubbed.
+      // - **forbidden:** An array of strings, each a forbidden word to be replaced in the text.
+
 
       /*  Questions!
       1. Replace each word in `text` that is included in the
        `forbidden` array with a string of "x" characters of
         equal length to the forbidden word.
       2. Ensure no punctuation is used in the text.
-      3. If `text` is empty or there are no forbidden words, return the original te
+      3. If `text` is empty or there are no forbidden words, return the original text
       */
+
+ /*
+      Example
+      #### Example 1
+```javascript
+let result = scrub("out of the silent planet", ["of", "silent"]);
+console.log(result);
+```
+Expected Output:
+```javascript
+"out xx the xxxxxx planet"
+```
+
+#### Example 2
+```javascript
+let result = scrub("the ghost of the navigator", ["the"]);
+console.log(result);
+```
+Expected Output:
+```javascript
+"xxx ghost of xxx navigator"
+```
+
+#### Example 3
+```javascript
+let result = scrub("lost somewhere in time", []);
+console.log(result);
+```
+Expected Output:
+```javascript
+"lost somewhere in time"
+```
+
+#### Example 4
+```javascript
+let result = scrub("aces high", ["high", "aces", "hearts"]);
+console.log(result);
+```
+Expected Output:
+```javascript
+"xxxx xxxx"
+```
+
+#### Example 5
+```javascript
+let result = scrub("", ["high", "aces"]);
+console.log(result);
+```
+Expected Output:
+```javascript   
+*/
+
+/* 
+### Hint
+Utilize array methods like `push`, `split`, `indexOf`, and `join` to effectively transform the text.
+*/
+
+//Repeat ver the Words
+if (!text || !forbidden|| forbidden.length === 0) {
+  return text;
+}
+
+let words = text.split(" ");
+//
+for (let i = 0; i < words.length; i++) {
+  // Removing Punctuation from the word.
+  let word = words[i].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+
+// If the word is in forbidden array, replace it with "x" characters!
+if (forbidden.includes(word)) {
+    words[i] = 'x'.repeat(word.length);
+    }
+  }
+  //Join the words back into a string and return it!
+      return words.join(" ");
     }
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
